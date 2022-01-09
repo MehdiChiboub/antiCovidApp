@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:anticovidapp/screens/home/components/header.dart';
+import 'package:anticovidapp/screens/home/components/description.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class Body extends StatelessWidget {
@@ -15,7 +16,8 @@ class Body extends StatelessWidget {
           Container(
             transform: Matrix4.translationValues(0.0, -42.0, 0.0),
             child: SvgPicture.asset('assets/images/home-svg.svg'),
-          )
+          ),
+          const Description(),
         ],
       ),
     );
