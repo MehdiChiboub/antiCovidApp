@@ -1,3 +1,4 @@
+import 'package:anticovidapp/screens/home/components/covid_info.dart';
 import 'package:flutter/material.dart';
 import 'package:anticovidapp/screens/home/components/header.dart';
 import 'package:anticovidapp/screens/home/components/description.dart';
@@ -19,7 +20,8 @@ class Body extends StatelessWidget {
             child: SvgPicture.asset('assets/images/home-svg.svg'),
           ),
           const Description(),
-          const HealthPass()
+          const HealthPass(),
+          const CovidInfo()
         ],
       ),
     );
