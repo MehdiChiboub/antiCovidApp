@@ -1,5 +1,6 @@
 import 'package:anticovidapp/constants.dart';
 import 'package:anticovidapp/screens/home/components/body.dart';
+import 'package:anticovidapp/screens/home/components/bottom_navbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -11,7 +12,8 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: buildAppBar(),
       body: const Body(),
-      // bottomNavigationBar: MyBottomNavBar(),
+      bottomNavigationBar: const BottomNavBar(),
+      floatingActionButton: QRFloatingButton(),
     );
   }
 
@@ -25,4 +27,10 @@ class HomeScreen extends StatelessWidget {
       backgroundColor: kPrimaryColor,
     );
   }
+
+  Widget QRFloatingButton() => FloatingActionButton(
+        child: Icon(Icons.qr_code_scanner),
+        backgroundColor: kPrimaryColor,
+        onPressed: () {},
+      );
 }
