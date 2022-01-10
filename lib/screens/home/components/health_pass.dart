@@ -1,8 +1,7 @@
+import 'package:anticovidapp/screens/pages/headPass.dart';
 import 'package:flutter/material.dart';
 import 'package:anticovidapp/constants.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
-import '../../pages/headPass.dart';
 
 class HealthPass extends StatelessWidget {
   const HealthPass({
