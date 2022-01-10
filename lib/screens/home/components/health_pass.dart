@@ -83,6 +83,7 @@ class HealthPass extends StatelessWidget {
               );
             },
           )
+
         ],
       ),
     );
