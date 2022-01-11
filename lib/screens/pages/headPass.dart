@@ -130,10 +130,14 @@ class HeadPass extends StatelessWidget {
                                     width:
                                         MediaQuery.of(context).size.width * 0.7,
                                     padding: EdgeInsets.all(8.0),
-                                    child: IconButton(
+                                    child: Align(
+                                      alignment: Alignment.topRight,
+                                      child: IconButton(
                                         onPressed: () {},
-                                        icon: Image.asset(
-                                            'assets/images/call.png')))
+                                        icon: Image.asset('assets/images/call.png'),
+                                      ),
+                                    ),
+                                )
                               ],
                             ),
                           ],
