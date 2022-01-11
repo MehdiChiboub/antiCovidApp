@@ -1,3 +1,4 @@
+import 'package:anticovidapp/screens/covid_cases/covid_cases.dart';
 import 'package:flutter/material.dart';
 import 'package:anticovidapp/constants.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -14,16 +15,38 @@ class CovidInfo extends StatelessWidget {
           horizontal: kDefaultPadding, vertical: kDefaultPadding + 30),
       child: Column(
         children: [
-          Align(
-            alignment: Alignment.centerLeft,
-            child: Text(
-              'Covid Information',
-              style: Theme.of(context).textTheme.headline5?.copyWith(
-                  color: Colors.black,
-                  fontWeight: FontWeight.w600,
-                  fontSize: 20),
-              textAlign: TextAlign.left,
-            ),
+          Row(
+            children: [
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'Covid Information',
+                  style: Theme.of(context).textTheme.headline5?.copyWith(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 20),
+                  textAlign: TextAlign.left,
+                ),
+              ),
+              const Spacer(),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: TextButton(
+                    child: Text(
+                      'see more',
+                      style: Theme.of(context).textTheme.headline5?.copyWith(
+                          color: kPrimaryColor,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 15),
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => CovidCases()),
+                      );
+                    }),
+              ),
+            ],
           ),
           Row(
             children: [
@@ -37,7 +60,7 @@ class CovidInfo extends StatelessWidget {
                 child: Container(
                   padding: const EdgeInsets.all(kDefaultPadding),
                   height: 95,
-                  width: 165,
+                  width: MediaQuery.of(context).size.width * 0.44,
                   child: Row(
                     children: <Widget>[
                       Column(
@@ -83,13 +106,13 @@ class CovidInfo extends StatelessWidget {
                 child: Container(
                   padding: const EdgeInsets.all(kDefaultPadding),
                   height: 95,
-                  width: 165,
+                  width: MediaQuery.of(context).size.width * 0.44,
                   child: Row(
                     children: <Widget>[
                       Column(
                         children: <Widget>[
                           Text(
-                            'All covid Death',
+                            'Covid Deaths',
                             style: Theme.of(context)
                                 .textTheme
                                 .headline6
@@ -132,7 +155,7 @@ class CovidInfo extends StatelessWidget {
                 child: Container(
                   padding: const EdgeInsets.all(kDefaultPadding),
                   height: 95,
-                  width: 165,
+                  width: MediaQuery.of(context).size.width * 0.44,
                   child: Row(
                     children: <Widget>[
                       Column(
@@ -140,7 +163,7 @@ class CovidInfo extends StatelessWidget {
                           Align(
                             alignment: Alignment.centerLeft,
                             child: Text(
-                              'Vaccinated people',
+                              'Vaccinated',
                               style: Theme.of(context)
                                   .textTheme
                                   .headline6
@@ -183,7 +206,7 @@ class CovidInfo extends StatelessWidget {
                 child: Container(
                   padding: const EdgeInsets.all(kDefaultPadding),
                   height: 95,
-                  width: 165,
+                  width: MediaQuery.of(context).size.width * 0.44,
                   child: Row(
                     children: <Widget>[
                       Column(
@@ -191,7 +214,7 @@ class CovidInfo extends StatelessWidget {
                           Align(
                             alignment: Alignment.centerLeft,
                             child: Text(
-                              'Last 24 hours',
+                              'New Cases',
                               style: Theme.of(context)
                                   .textTheme
                                   .headline6
