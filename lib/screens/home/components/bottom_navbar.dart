@@ -1,3 +1,6 @@
+import 'package:anticovidapp/screens/covid_cases/covid_cases.dart';
+import 'package:anticovidapp/screens/home/home_screen.dart';
+import 'package:anticovidapp/screens/pages/headPass.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:anticovidapp/constants.dart';
@@ -32,15 +35,33 @@ class BottomNavBar extends StatelessWidget {
         children: <Widget>[
           IconButton(
             icon: SvgPicture.asset("assets/icons/home-solid.svg"),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => HomeScreen(
+                          title: '',
+                        )),
+              );
+            },
           ),
           IconButton(
             icon: SvgPicture.asset("assets/icons/inbox.svg"),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => HeadPass()),
+              );
+            },
           ),
           IconButton(
             icon: SvgPicture.asset("assets/icons/user-regular.svg"),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => CovidCases()),
+              );
+            },
           ),
         ],
       ),
