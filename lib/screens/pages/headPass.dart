@@ -1,10 +1,12 @@
 import 'package:anticovidapp/constants.dart';
 import 'package:anticovidapp/screens/home/components/bottom_navbar.dart';
+import 'package:anticovidapp/screens/pages/MyPasses.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class HeadPass extends StatelessWidget {
   const HeadPass({Key? key}) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
@@ -101,6 +103,55 @@ class HeadPass extends StatelessWidget {
                                       MediaQuery.of(context).size.width * 0.7,
                                   padding: EdgeInsets.all(8.0),
                                   child: Text(
+                                    "My Passes",
+                                    style: TextStyle(
+                                        fontSize: 20.0,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                )
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                Container(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.7,
+                                  padding: EdgeInsets.all(8.0),
+                                  child: MyData(title: "Qr"),
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                elevation: 3,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                shadowColor: Colors.black,
+                margin: EdgeInsets.only(
+                    left: 25.0, right: 25.0, top: 10.0, bottom: 10.0)
+            ),
+            Card(
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Container(
+                        padding:
+                            EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            Row(
+                              children: [
+                                Container(
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.7,
+                                  padding: EdgeInsets.all(8.0),
+                                  child: Text(
                                     "Help",
                                     style: TextStyle(
                                         fontSize: 20.0,
@@ -152,7 +203,8 @@ class HeadPass extends StatelessWidget {
                 ),
                 shadowColor: Colors.black,
                 margin: EdgeInsets.only(
-                    left: 25.0, right: 25.0, top: 10.0, bottom: 10.0)),
+                    left: 25.0, right: 25.0, top: 10.0, bottom: 10.0)
+            ),
           ],
         ),
       ),

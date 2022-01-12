@@ -1,5 +1,7 @@
 import 'package:anticovidapp/constants.dart';
 import 'package:anticovidapp/screens/home/home_screen.dart';
+import 'package:anticovidapp/screens/pages/MyPasses.dart';
+import 'package:anticovidapp/screens/pages/headPass.dart';
 import 'package:anticovidapp/screens/qr_code/instances.dart';
 import 'package:anticovidapp/screens/qr_code/qr_code.dart';
 import 'package:flutter/material.dart';
@@ -123,8 +125,8 @@ class _DetailsScreenState extends State<DetailsScreen> {
                   context,
                   MaterialPageRoute(
                       builder: (context) =>
-                          const HomeScreen(title: "Qr Code Scanner")),
-                );
+                          const HeadPass()),
+                );  
               },
               child: const Text("Save"))
         ],
