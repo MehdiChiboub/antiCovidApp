@@ -1,3 +1,4 @@
+import 'package:anticovidapp/screens/pages/details_display_screen.dart';
 import 'package:anticovidapp/screens/pages/headPass.dart';
 import 'package:anticovidapp/screens/qr_code/instances.dart';
 import 'package:anticovidapp/screens/qr_code/qr_code.dart';
@@ -100,5 +101,3 @@ class MyPasses extends State<MyData> {
   }
 }
 
-DetailsDisplayScreen({required void Function(List<MyQrCode> qrCodes) callBack, required MyQrCode qrCode}) {
-}

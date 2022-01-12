@@ -1,8 +1,10 @@
+import 'package:anticovidapp/constants.dart';
 import 'package:anticovidapp/screens/pages/MyPasses.dart';
 import 'package:anticovidapp/screens/pages/headPass.dart';
 import 'package:anticovidapp/screens/qr_code/instances.dart';
 import 'package:anticovidapp/screens/qr_code/qr_code.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 class DetailsDisplayScreen extends StatefulWidget {
@@ -21,8 +23,19 @@ class _DetailsDisplayScreenState extends State<DetailsDisplayScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.qrCode.type.toString()),
-      ),
+          backgroundColor: kPrimaryColor,
+          elevation: 0,
+          leading: IconButton(
+            icon: SvgPicture.asset("assets/icons/Vector.svg"),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+          title: const Text(
+            "Pass Covid",
+            textAlign: TextAlign.center,
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          )),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
