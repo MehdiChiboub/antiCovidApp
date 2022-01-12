@@ -1,12 +1,46 @@
+import 'dart:convert';
+
 import 'package:anticovidapp/screens/covid_cases/covid_cases.dart';
 import 'package:flutter/material.dart';
 import 'package:anticovidapp/constants.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:http/http.dart' as http;
 
-class CovidInfo extends StatelessWidget {
-  const CovidInfo({
-    Key? key,
-  }) : super(key: key);
+class CovidInfo extends StatefulWidget {
+  @override
+  _CovidInfo createState() => _CovidInfo();
+}
+
+
+class _CovidInfo extends State<CovidInfo> {
+  late Map dataForTomorrow = new Map();
+  late Map dataForToday = new Map();
+
+
+  fetchCovidInfo() async {
+    DateTime now = DateTime.now();
+    String tomorrowTime = "${now.year.toString()}-${now.month.toString().padLeft(2,'0')}-${(now.day + 1).toString().padLeft(2,'0')}";
+    String todayTime = "${now.year.toString()}-${now.month.toString().padLeft(2,'0')}-${now.day.toString().padLeft(2,'0')}";
+
+    final responseForTomorrow = await http.get(Uri.parse(
+        'https://api.coronatracker.com/v5/analytics/trend/country?countryCode=MA&startDate=2021-12-27&endDate=${tomorrowTime}'));
+    final responseForToday = await http.get(Uri.parse(
+        'https://api.coronatracker.com/v5/analytics/trend/country?countryCode=MA&startDate=2021-12-27&endDate=${todayTime}'));
+    if (responseForTomorrow.statusCode == 200 && responseForToday.statusCode == 200) {
+      setState(() {
+        this.dataForTomorrow = jsonDecode(responseForTomorrow.body)[jsonDecode(responseForTomorrow.body).length - 1];
+        this.dataForToday = jsonDecode(responseForToday.body)[jsonDecode(responseForToday.body).length - 1];
+      });
+    }
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    print("Hello");
+    fetchCovidInfo();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -71,21 +105,21 @@ class CovidInfo extends StatelessWidget {
                                 .textTheme
                                 .headline6
                                 ?.copyWith(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 15),
+                                color: Colors.black,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 15),
                             textAlign: TextAlign.left,
                           ),
                           Padding(
                             padding: const EdgeInsets.only(top: 10.0),
                             child: Text(
-                              '80, 000',
+                              this.dataForTomorrow["total_confirmed"].toString(),
                               style: Theme.of(context)
                                   .textTheme
                                   .headline6
                                   ?.copyWith(
-                                      color: kPrimaryColor,
-                                      fontWeight: FontWeight.w600),
+                                  color: kPrimaryColor,
+                                  fontWeight: FontWeight.w600),
                               textAlign: TextAlign.left,
                             ),
                           ),
@@ -117,21 +151,21 @@ class CovidInfo extends StatelessWidget {
                                 .textTheme
                                 .headline6
                                 ?.copyWith(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 15),
+                                color: Colors.black,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 15),
                             textAlign: TextAlign.left,
                           ),
                           Padding(
                             padding: const EdgeInsets.only(top: 10.0),
                             child: Text(
-                              '90, 000',
+                              this.dataForTomorrow["total_deaths"].toString(),
                               style: Theme.of(context)
                                   .textTheme
                                   .headline6
                                   ?.copyWith(
-                                      color: const Color(0xffDE911F),
-                                      fontWeight: FontWeight.w600),
+                                  color: const Color(0xffDE911F),
+                                  fontWeight: FontWeight.w600),
                               textAlign: TextAlign.left,
                             ),
                           )
@@ -163,14 +197,14 @@ class CovidInfo extends StatelessWidget {
                           Align(
                             alignment: Alignment.centerLeft,
                             child: Text(
-                              'Vaccinated',
+                              'Recovered',
                               style: Theme.of(context)
                                   .textTheme
                                   .headline6
                                   ?.copyWith(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 15),
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 15),
                               textAlign: TextAlign.left,
                             ),
                           ),
@@ -179,13 +213,13 @@ class CovidInfo extends StatelessWidget {
                             child: Padding(
                               padding: const EdgeInsets.only(top: 10.0),
                               child: Text(
-                                '80, 000',
+                                this.dataForTomorrow["total_recovered"].toString(),
                                 style: Theme.of(context)
                                     .textTheme
                                     .headline6
                                     ?.copyWith(
-                                        color: const Color(0xff29BCAA),
-                                        fontWeight: FontWeight.w600),
+                                    color: const Color(0xff29BCAA),
+                                    fontWeight: FontWeight.w600),
                               ),
                             ),
                           )
@@ -219,9 +253,9 @@ class CovidInfo extends StatelessWidget {
                                   .textTheme
                                   .headline6
                                   ?.copyWith(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 15),
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 15),
                               textAlign: TextAlign.left,
                             ),
                           ),
@@ -230,13 +264,13 @@ class CovidInfo extends StatelessWidget {
                             child: Padding(
                               padding: const EdgeInsets.only(top: 10.0),
                               child: Text(
-                                '300',
+                                ((this.dataForTomorrow["total_confirmed"] == null ? 0 : this.dataForTomorrow["total_confirmed"]) - (this.dataForToday["total_confirmed"] == null ? 0 : this.dataForToday["total_confirmed"])).toString(),
                                 style: Theme.of(context)
                                     .textTheme
                                     .headline6
                                     ?.copyWith(
-                                        color: const Color(0xff3092D9),
-                                        fontWeight: FontWeight.w600),
+                                    color: const Color(0xff3092D9),
+                                    fontWeight: FontWeight.w600),
                                 textAlign: TextAlign.left,
                               ),
                             ),
@@ -253,4 +287,6 @@ class CovidInfo extends StatelessWidget {
       ),
     );
   }
+
+
 }

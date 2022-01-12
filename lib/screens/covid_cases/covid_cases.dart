@@ -13,16 +13,23 @@ class CovidCases extends StatefulWidget {
 }
 
 class _CovidCases extends State<CovidCases> {
-  late Map data = new Map();
+  late Map dataForTomorrow = new Map();
+  late Map dataForToday = new Map();
+
 
   fetchCovidInfo() async {
-    final response = await http.get(Uri.parse(
-        'https://api.coronatracker.com/v5/analytics/trend/country?countryCode=MA&startDate=2021-12-27&endDate=2022-01-11'));
-    if (response.statusCode == 200) {
+    DateTime now = DateTime.now();
+    String tomorrowTime = "${now.year.toString()}-${now.month.toString().padLeft(2,'0')}-${(now.day + 1).toString().padLeft(2,'0')}";
+    String todayTime = "${now.year.toString()}-${now.month.toString().padLeft(2,'0')}-${now.day.toString().padLeft(2,'0')}";
+
+    final responseForTomorrow = await http.get(Uri.parse(
+        'https://api.coronatracker.com/v5/analytics/trend/country?countryCode=MA&startDate=2021-12-27&endDate=${tomorrowTime}'));
+    final responseForToday = await http.get(Uri.parse(
+        'https://api.coronatracker.com/v5/analytics/trend/country?countryCode=MA&startDate=2021-12-27&endDate=${todayTime}'));
+    if (responseForTomorrow.statusCode == 200 && responseForToday.statusCode == 200) {
       setState(() {
-        this.data =
-            jsonDecode(response.body)[jsonDecode(response.body).length - 1];
-        print(this.data["country"]);
+        this.dataForTomorrow = jsonDecode(responseForTomorrow.body)[jsonDecode(responseForTomorrow.body).length - 1];
+        this.dataForToday = jsonDecode(responseForToday.body)[jsonDecode(responseForToday.body).length - 1];
       });
     }
   }
@@ -65,7 +72,7 @@ class _CovidCases extends State<CovidCases> {
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Text(
-                                    this.data["total_confirmed"].toString(),
+                                    this.dataForTomorrow["total_confirmed"].toString(),
                                     style: TextStyle(
                                         color: Color(0xFF58AD70),
                                         fontSize: 30.0,
@@ -129,7 +136,7 @@ class _CovidCases extends State<CovidCases> {
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Text(
-                                    this.data["total_deaths"].toString(),
+                                    this.dataForTomorrow["total_deaths"].toString(),
                                     style: TextStyle(
                                         color: Color(0xFFDE911F),
                                         fontSize: 30.0,
@@ -193,7 +200,7 @@ class _CovidCases extends State<CovidCases> {
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Text(
-                                    this.data["total_recovered"].toString(),
+                                    this.dataForTomorrow["total_recovered"].toString(),
                                     style: TextStyle(
                                         color: Color(0xFF29BCAA),
                                         fontSize: 30.0,

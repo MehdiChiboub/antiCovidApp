@@ -21,7 +21,7 @@ class Body extends StatelessWidget {
           ),
           const Description(),
           const HealthPass(),
-          const CovidInfo()
+          CovidInfo()
         ],
       ),
     );
