@@ -39,7 +39,7 @@ class BottomNavBar extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => HomeScreen(
+                    builder: (context) => const HomeScreen(
                           title: '',
                         )),
               );
@@ -50,16 +50,16 @@ class BottomNavBar extends StatelessWidget {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => HeadPass()),
+                MaterialPageRoute(builder: (context) => const HeadPass()),
               );
             },
           ),
           IconButton(
-            icon: SvgPicture.asset("assets/icons/user-regular.svg"),
+            icon: SvgPicture.asset("assets/icons/virus.svg"),
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => CovidCases()),
+                MaterialPageRoute(builder: (context) => const CovidCases()),
               );
             },
           ),

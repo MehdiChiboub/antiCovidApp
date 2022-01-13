@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:anticovidapp/screens/covid_cases/covid_cases.dart';
 import 'package:flutter/material.dart';
 import 'package:anticovidapp/constants.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:http/http.dart' as http;
 
 class CovidInfo extends StatefulWidget {
@@ -28,16 +27,14 @@ class _CovidInfo extends State<CovidInfo> {
         'https://api.coronatracker.com/v5/analytics/trend/country?countryCode=MA&startDate=2021-12-27&endDate=${todayTime}'));
     if (responseForTomorrow.statusCode == 200 && responseForToday.statusCode == 200) {
       setState(() {
-        this.dataForTomorrow = jsonDecode(responseForTomorrow.body)[jsonDecode(responseForTomorrow.body).length - 1];
-        this.dataForToday = jsonDecode(responseForToday.body)[jsonDecode(responseForToday.body).length - 1];
+        dataForTomorrow = jsonDecode(responseForTomorrow.body)[jsonDecode(responseForTomorrow.body).length - 1];
+        dataForToday = jsonDecode(responseForToday.body)[jsonDecode(responseForToday.body).length - 1];
       });
     }
   }
 
   @override
   void initState() {
-    // TODO: implement initState
-    print("Hello");
     fetchCovidInfo();
     super.initState();
   }
@@ -76,7 +73,7 @@ class _CovidInfo extends State<CovidInfo> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => CovidCases()),
+                        MaterialPageRoute(builder: (context) => const CovidCases()),
                       );
                     }),
               ),
@@ -113,7 +110,7 @@ class _CovidInfo extends State<CovidInfo> {
                           Padding(
                             padding: const EdgeInsets.only(top: 10.0),
                             child: Text(
-                              this.dataForTomorrow["total_confirmed"].toString(),
+                              dataForTomorrow["total_confirmed"].toString(),
                               style: Theme.of(context)
                                   .textTheme
                                   .headline6
@@ -159,7 +156,7 @@ class _CovidInfo extends State<CovidInfo> {
                           Padding(
                             padding: const EdgeInsets.only(top: 10.0),
                             child: Text(
-                              this.dataForTomorrow["total_deaths"].toString(),
+                              dataForTomorrow["total_deaths"].toString(),
                               style: Theme.of(context)
                                   .textTheme
                                   .headline6
@@ -213,7 +210,7 @@ class _CovidInfo extends State<CovidInfo> {
                             child: Padding(
                               padding: const EdgeInsets.only(top: 10.0),
                               child: Text(
-                                this.dataForTomorrow["total_recovered"].toString(),
+                                dataForTomorrow["total_recovered"].toString(),
                                 style: Theme.of(context)
                                     .textTheme
                                     .headline6
@@ -264,7 +261,7 @@ class _CovidInfo extends State<CovidInfo> {
                             child: Padding(
                               padding: const EdgeInsets.only(top: 10.0),
                               child: Text(
-                                ((this.dataForTomorrow["total_confirmed"] == null ? 0 : this.dataForTomorrow["total_confirmed"]) - (this.dataForToday["total_confirmed"] == null ? 0 : this.dataForToday["total_confirmed"])).toString(),
+                                ((dataForTomorrow["total_confirmed"] == null ? 0 : dataForTomorrow["total_confirmed"]) - (dataForToday["total_confirmed"] == null ? 0 : dataForToday["total_confirmed"])).toString(),
                                 style: Theme.of(context)
                                     .textTheme
                                     .headline6
