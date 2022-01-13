@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:anticovidapp/constants.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Description extends StatelessWidget {
   const Description({
@@ -14,7 +15,7 @@ class Description extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            'Welcome to our AntiCovidApp to help fight against Covid-19',
+            AppLocalizations.of(context)!.description_title,
             style: Theme.of(context)
                 .textTheme
                 .headline6
@@ -24,7 +25,7 @@ class Description extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
             child: Text(
-              'It allows you to be alerted in case of contact with Covid-19, to be informed on the evolution of the epidemic and to store your health pass certificates.',
+              AppLocalizations.of(context)!.description_text,
               style: Theme.of(context).textTheme.headline6?.copyWith(
                   color: Colors.black54, fontWeight: FontWeight.w300),
               textAlign: TextAlign.justify,

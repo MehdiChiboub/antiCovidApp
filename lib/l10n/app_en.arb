@@ -1,0 +1,26 @@
+{
+    "description_title": "Welcome to our AntiCovidApp to help fight against Covid-19",
+    "description_text": "It allows you to be alerted in case of contact with Covid-19, to be informed on the evolution of the epidemic and to store your health pass certificates.",
+    "home_health_pass_title": "My Health Pass",
+    "home_health_pass_card_title": "My Personal Health Pass",
+    "home_health_pass_card_description": "See all your tests and recovery and verification certificates",
+    "home_covid_info_title": "Covid Information",
+    "home_covid_info_see_more": "see more",
+    "home_covid_info_card_title1": "Covid Cases",
+    "home_covid_info_card_title2": "Covid Deaths",
+    "home_covid_info_card_title3": "Recovered",
+    "home_covid_info_card_title4": "New Cases",
+
+    "covid_page_title": "Covid Cases",
+    "covid_page_description": "You find all the information related to Covid-19 cases and vaccination in Morocco",
+    "covid_page_card_title1": "Covid Cases",
+    "covid_page_card_description1": "This indicator gives you the exact number of covid cases all around Morocco",
+    "covid_page_card_title2": "Covid Death cases",
+    "covid_page_card_description2": "This indicator gives you the exact number of covid death cases all around Morocco",
+    "covid_page_card_title3": "Vaccinated people",
+    "covid_page_card_description3": "This indicator gives you the exact number of vaccinated people all around Morocco",
+    "covid_page_card_title4": "Recovered people",
+    "covid_page_card_description4": "This indicator gives you the exact number of recovered people all around Morocco"
+
+
+}

@@ -1,0 +1,24 @@
+{
+    "description_title": "Bienvenue dans notre AntiCovidApp pour aider à lutter contre le Covid-19",
+    "description_text": "Il vous permet d’être alerté en cas de contact avec le Covid-19, d’être informé de l’évolution de l’épidémie et de conserver vos certificats de pass santé.",
+    "home_health_pass_title": "Mon Pass Sanitaire",
+    "home_health_pass_card_title": "Pass Sanitaire personnel",
+    "home_health_pass_card_description": "Voir tous vos tests et certificats et vérification",
+    "home_covid_info_title": "Informations Covid",
+    "home_covid_info_see_more": "voir plus",
+    "home_covid_info_card_title1": "Cas de Covid",
+    "home_covid_info_card_title2": "Décès Covid",
+    "home_covid_info_card_title3": "Cas Rétabli",
+    "home_covid_info_card_title4": "Nouveaux Cas",
+
+    "covid_page_title": "Informations sur Covid",
+    "covid_page_description": "Vous trouverez toutes les informations relatives aux cas de Covid-19 et à la vaccination au Maroc",
+    "covid_page_card_title1": "Cas de Covid",
+    "covid_page_card_description1": "Cet indicateur vous donne le nombre exact de cas de covid dans tout le Maroc",
+    "covid_page_card_title2": "Décès Covid",
+    "covid_page_card_description2": "Cet indicateur vous donne le nombre exact de cas de décès covid dans tout le Maroc",
+    "covid_page_card_title3": "Personnes vaccinées",
+    "covid_page_card_description3": "Cet indicateur vous donne le nombre exact de personnes vaccinées dans tout le Maroc",
+    "covid_page_card_title4": "Cas Rétabli",
+    "covid_page_card_description4": "Cet indicateur vous donne le nombre exact de personnes rétablies dans tout le Maroc"
+}

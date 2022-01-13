@@ -2,6 +2,7 @@ import 'package:anticovidapp/screens/pages/headPass.dart';
 import 'package:flutter/material.dart';
 import 'package:anticovidapp/constants.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HealthPass extends StatelessWidget {
   const HealthPass({
@@ -17,7 +18,7 @@ class HealthPass extends StatelessWidget {
           Align(
             alignment: Alignment.centerLeft,
             child: Text(
-              'My Health Pass',
+              AppLocalizations.of(context)!.home_health_pass_title,
               style: Theme.of(context).textTheme.headline5?.copyWith(
                   color: Colors.black,
                   fontWeight: FontWeight.w600,
@@ -40,7 +41,7 @@ class HealthPass extends StatelessWidget {
                       Align(
                         alignment: Alignment.centerLeft,
                         child: Text(
-                          'My Personal Health Pass',
+                          AppLocalizations.of(context)!.home_health_pass_card_title,
                           style: Theme.of(context)
                               .textTheme
                               .headline6
@@ -56,7 +57,7 @@ class HealthPass extends StatelessWidget {
                         child: Padding(
                           padding: const EdgeInsets.only(top: 10.0),
                           child: Text(
-                            'See all your tests and recovery and verification certificates',
+                            AppLocalizations.of(context)!.home_health_pass_card_description,
                             style: Theme.of(context)
                                 .textTheme
                                 .headline6

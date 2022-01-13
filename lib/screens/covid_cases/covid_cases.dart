@@ -4,6 +4,7 @@ import 'package:anticovidapp/constants.dart';
 import 'package:anticovidapp/screens/home/components/bottom_navbar.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class CovidCases extends StatefulWidget {
   const CovidCases({Key? key}) : super(key: key);
@@ -58,10 +59,10 @@ class _CovidCases extends State<CovidCases> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const Padding(
+            Padding(
               padding: EdgeInsets.all(20.0),
               child: Text(
-                "You find all the information related to Covid-19 cases and vaccination in Morocco",
+                AppLocalizations.of(context)!.covid_page_description,
                 textAlign: TextAlign.left,
                 style: TextStyle(fontSize: 20.0),
               ),
@@ -92,11 +93,12 @@ class _CovidCases extends State<CovidCases> {
                               ],
                             ),
                             Row(
-                              children: const [
+                              children: [
                                 Padding(
                                   padding: EdgeInsets.all(8.0),
                                   child: Text(
-                                    "Covid Cases",
+                                    AppLocalizations.of(context)!
+                                        .covid_page_card_title1,
                                     style: TextStyle(
                                         fontSize: 20.0,
                                         fontWeight: FontWeight.bold),
@@ -110,8 +112,9 @@ class _CovidCases extends State<CovidCases> {
                                   width:
                                       MediaQuery.of(context).size.width * 0.75,
                                   padding: const EdgeInsets.all(8.0),
-                                  child: const Text(
-                                    "This indicator gives you the exact number of covid cases all around Morocco",
+                                  child: Text(
+                                    AppLocalizations.of(context)!
+                                        .covid_page_card_description1,
                                     textAlign: TextAlign.left,
                                     style: TextStyle(fontSize: 15.0),
                                   ),
@@ -156,11 +159,12 @@ class _CovidCases extends State<CovidCases> {
                               ],
                             ),
                             Row(
-                              children: const [
+                              children: [
                                 Padding(
                                   padding: EdgeInsets.all(8.0),
                                   child: Text(
-                                    "Covid Death cases",
+                                    AppLocalizations.of(context)!
+                                        .covid_page_card_title2,
                                     style: TextStyle(
                                         fontSize: 20.0,
                                         fontWeight: FontWeight.bold),
@@ -174,8 +178,9 @@ class _CovidCases extends State<CovidCases> {
                                   width:
                                       MediaQuery.of(context).size.width * 0.75,
                                   padding: const EdgeInsets.all(8.0),
-                                  child: const Text(
-                                    "This indicator gives you the exact number of covid death cases all around Morocco",
+                                  child: Text(
+                                    AppLocalizations.of(context)!
+                                        .covid_page_card_description2,
                                     textAlign: TextAlign.left,
                                     style: TextStyle(fontSize: 15.0),
                                   ),
@@ -220,11 +225,12 @@ class _CovidCases extends State<CovidCases> {
                             ],
                           ),
                           Row(
-                            children: const [
+                            children: [
                               Padding(
                                 padding: EdgeInsets.all(8.0),
                                 child: Text(
-                                  "Vaccinated people",
+                                  AppLocalizations.of(context)!
+                                      .covid_page_card_title3,
                                   style: TextStyle(
                                       fontSize: 20.0,
                                       fontWeight: FontWeight.bold),
@@ -237,8 +243,9 @@ class _CovidCases extends State<CovidCases> {
                               Container(
                                 width: MediaQuery.of(context).size.width * 0.75,
                                 padding: const EdgeInsets.all(8.0),
-                                child: const Text(
-                                  "This indicator gives you the exact number of vaccinated people all around Morocco",
+                                child: Text(
+                                  AppLocalizations.of(context)!
+                                      .covid_page_card_description3,
                                   textAlign: TextAlign.left,
                                   style: TextStyle(fontSize: 15.0),
                                 ),
@@ -284,11 +291,12 @@ class _CovidCases extends State<CovidCases> {
                             ],
                           ),
                           Row(
-                            children: const [
+                            children: [
                               Padding(
                                 padding: EdgeInsets.all(8.0),
                                 child: Text(
-                                  "Recovered people",
+                                  AppLocalizations.of(context)!
+                                      .covid_page_card_title4,
                                   style: TextStyle(
                                       fontSize: 20.0,
                                       fontWeight: FontWeight.bold),
@@ -301,8 +309,9 @@ class _CovidCases extends State<CovidCases> {
                               Container(
                                 width: MediaQuery.of(context).size.width * 0.75,
                                 padding: const EdgeInsets.all(8.0),
-                                child: const Text(
-                                  "This indicator gives you the exact number of recovered people all around Morocco",
+                                child: Text(
+                                  AppLocalizations.of(context)!
+                                      .covid_page_card_description4,
                                   textAlign: TextAlign.left,
                                   style: TextStyle(fontSize: 15.0),
                                 ),
@@ -333,8 +342,8 @@ class _CovidCases extends State<CovidCases> {
   buildAppBar(BuildContext context) {
     return AppBar(
         backgroundColor: kPrimaryColor,
-        title: const Text(
-          "Covid Cases",
+        title: Text(
+          AppLocalizations.of(context)!.covid_page_title,
           textAlign: TextAlign.center,
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ));
