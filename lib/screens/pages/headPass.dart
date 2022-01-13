@@ -6,6 +6,7 @@ import 'package:anticovidapp/screens/qr_code/qr_code.dart';
 import 'package:anticovidapp/screens/qr_code/qr_code_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HeadPass extends StatefulWidget {
   const HeadPass({Key? key}) : super(key: key);
@@ -40,10 +41,10 @@ class _HeadPassState extends State<HeadPass> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            const Padding(
+            Padding(
               padding: EdgeInsets.all(20.0),
               child: Text(
-                "you can download the document to get your pass.this pass will allow you to get ",
+                AppLocalizations.of(context)!.head_pass_description,
                 textAlign: TextAlign.left,
                 style: TextStyle(fontSize: 20.0),
               ),
@@ -64,8 +65,9 @@ class _HeadPassState extends State<HeadPass> {
                                   width:
                                       MediaQuery.of(context).size.width * 0.7,
                                   padding: const EdgeInsets.all(8.0),
-                                  child: const Text(
-                                    "Document",
+                                  child: Text(
+                                    AppLocalizations.of(context)!
+                                        .head_pass_card_title1,
                                     style: TextStyle(
                                         fontSize: 20.0,
                                         fontWeight: FontWeight.bold),
@@ -79,8 +81,9 @@ class _HeadPassState extends State<HeadPass> {
                                   width:
                                       MediaQuery.of(context).size.width * 0.7,
                                   padding: const EdgeInsets.all(8.0),
-                                  child: const Text(
-                                    "You can get the document from ........................................................................................................................",
+                                  child: Text(
+                                    AppLocalizations.of(context)!
+                                        .head_pass_card_description1,
                                     style: TextStyle(
                                       fontSize: 20.0,
                                     ),
@@ -127,8 +130,9 @@ class _HeadPassState extends State<HeadPass> {
                                   width:
                                       MediaQuery.of(context).size.width * 0.7,
                                   padding: const EdgeInsets.all(8.0),
-                                  child: const Text(
-                                    "My Passes",
+                                  child: Text(
+                                    AppLocalizations.of(context)!
+                                        .head_pass_card_title2,
                                     style: TextStyle(
                                         fontSize: 20.0,
                                         fontWeight: FontWeight.bold),
@@ -175,8 +179,9 @@ class _HeadPassState extends State<HeadPass> {
                                   width:
                                       MediaQuery.of(context).size.width * 0.7,
                                   padding: const EdgeInsets.all(8.0),
-                                  child: const Text(
-                                    "Help",
+                                  child: Text(
+                                    AppLocalizations.of(context)!
+                                        .head_pass_card_title3,
                                     style: TextStyle(
                                         fontSize: 20.0,
                                         fontWeight: FontWeight.bold),
@@ -190,8 +195,9 @@ class _HeadPassState extends State<HeadPass> {
                                   width:
                                       MediaQuery.of(context).size.width * 0.7,
                                   padding: const EdgeInsets.all(8.0),
-                                  child: const Text(
-                                    "you can ask for help by calling us : 06 66 66 66 66",
+                                  child: Text(
+                                    AppLocalizations.of(context)!
+                                        .head_pass_card_description3,
                                     style: TextStyle(
                                       fontSize: 20.0,
                                     ),
@@ -247,8 +253,8 @@ class _HeadPassState extends State<HeadPass> {
             Navigator.pop(context);
           },
         ),
-        title: const Text(
-          "Pass Sanitaire",
+        title: Text(
+          AppLocalizations.of(context)!.head_pass_title,
           textAlign: TextAlign.center,
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ));

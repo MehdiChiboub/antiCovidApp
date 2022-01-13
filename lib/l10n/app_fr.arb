@@ -20,5 +20,23 @@
     "covid_page_card_title3": "Personnes vaccinées",
     "covid_page_card_description3": "Cet indicateur vous donne le nombre exact de personnes vaccinées dans tout le Maroc",
     "covid_page_card_title4": "Cas Rétabli",
-    "covid_page_card_description4": "Cet indicateur vous donne le nombre exact de personnes rétablies dans tout le Maroc"
+    "covid_page_card_description4": "Cet indicateur vous donne le nombre exact de personnes rétablies dans tout le Maroc",
+
+    "details_page_title": "Pass Sanitaire",
+
+    "head_pass_title": "Pass Sanitaire",
+    "head_pass_description": "vous pouvez télécharger le document pour obtenir votre pass.ce pass vous permettra d’obtenir",
+    "head_pass_card_title1": "Document",
+    "head_pass_card_description1": "Vous pouvez obtenir le document à partir de ........................................................................................................................",
+    "head_pass_card_title2": "Mes Pass",
+    "head_pass_card_title3": "Aide",
+    "head_pass_card_description3": "vous pouvez demander de l’aide en nous appelant : 06 66 66 66 66",
+
+    "qr_code_screen_title": "Scanner Le pass Sanitaire",
+    "qr_code_screen_msg": "Aucun code trouvé",
+    "qr_code_screen_upload": "Télécharger un fichier",
+    "qr_code_screen_error": "La clé existe déjà",
+
+    "qr_code_screen_details_title": "Détails Pass Sanitaire",
+    "qr_code_screen_details_btn": "Sauvegarder"
 }

@@ -8,6 +8,7 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:qr_code_tools/qr_code_tools.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class QrCodeScreen extends StatefulWidget {
   final Function callback;
@@ -37,7 +38,7 @@ class _QrCodeScreenState extends State<QrCodeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Health Pass Scanner"),
+        title: Text(AppLocalizations.of(context)!.qr_code_screen_title),
         backgroundColor: kPrimaryColor,
       ),
       body: Column(
@@ -65,7 +66,7 @@ class _QrCodeScreenState extends State<QrCodeScreen> {
                             result.files.single.path.toString())
                         .onError((dynamic error, dynamic stackTrace) {
                       ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text("No code found")));
+                          SnackBar(content: Text(AppLocalizations.of(context)!.qr_code_screen_msg)));
                       return '';
                     });
                     if (code == '') {
@@ -88,7 +89,7 @@ class _QrCodeScreenState extends State<QrCodeScreen> {
                 },
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [Icon(Icons.upload), Text("Upload a file")],
+                  children: [Icon(Icons.upload), Text(AppLocalizations.of(context)!.qr_code_screen_upload)],
                 ),
               ),
             ),
@@ -124,7 +125,7 @@ class _QrCodeScreenState extends State<QrCodeScreen> {
           );
         } else {
           ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(content: Text("Key already exists")));
+              SnackBar(content: Text(AppLocalizations.of(context)!.qr_code_screen_error)));
         }
       }
     });

@@ -1,12 +1,11 @@
 import 'package:anticovidapp/constants.dart';
-import 'package:anticovidapp/screens/home/home_screen.dart';
-import 'package:anticovidapp/screens/pages/MyPasses.dart';
 import 'package:anticovidapp/screens/pages/headPass.dart';
 import 'package:anticovidapp/screens/qr_code/instances.dart';
 import 'package:anticovidapp/screens/qr_code/qr_code.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:qr_flutter/qr_flutter.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class DetailsScreen extends StatefulWidget {
   final MyQrCode qrCode;
@@ -30,7 +29,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: const Text("Health Pass Details"),
+        title: Text(AppLocalizations.of(context)!.qr_code_screen_details_title),
         backgroundColor: kPrimaryColor,
       ),
       body: Column(
@@ -128,7 +127,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                           const HeadPass()),
                 );  
               },
-              child: const Text("Save"))
+              child: Text(AppLocalizations.of(context)!.qr_code_screen_details_btn))
         ],
       ),
     );

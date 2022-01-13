@@ -1,11 +1,11 @@
 import 'package:anticovidapp/constants.dart';
-import 'package:anticovidapp/screens/pages/MyPasses.dart';
 import 'package:anticovidapp/screens/pages/headPass.dart';
 import 'package:anticovidapp/screens/qr_code/instances.dart';
 import 'package:anticovidapp/screens/qr_code/qr_code.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:qr_flutter/qr_flutter.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class DetailsDisplayScreen extends StatefulWidget {
   final MyQrCode qrCode;
@@ -31,8 +31,8 @@ class _DetailsDisplayScreenState extends State<DetailsDisplayScreen> {
               Navigator.pop(context);
             },
           ),
-          title: const Text(
-            "Pass Covid",
+          title: Text(
+            AppLocalizations.of(context)!.details_page_title,
             textAlign: TextAlign.center,
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
           )),

@@ -20,7 +20,24 @@
     "covid_page_card_title3": "Vaccinated people",
     "covid_page_card_description3": "This indicator gives you the exact number of vaccinated people all around Morocco",
     "covid_page_card_title4": "Recovered people",
-    "covid_page_card_description4": "This indicator gives you the exact number of recovered people all around Morocco"
+    "covid_page_card_description4": "This indicator gives you the exact number of recovered people all around Morocco",
 
+    "details_page_title": "Pass Covid",
+
+    "head_pass_title": "Health Pass",
+    "head_pass_description": "you can download the document to get your pass.this pass will allow you to get ",
+    "head_pass_card_title1": "Document",
+    "head_pass_card_description1": "You can get the document from ........................................................................................................................",
+    "head_pass_card_title2": "My Passes",
+    "head_pass_card_title3": "Help",
+    "head_pass_card_description3": "you can ask for help by calling us : 06 66 66 66 66",
+
+    "qr_code_screen_title": "Health Pass Scanner",
+    "qr_code_screen_msg": "No code found",
+    "qr_code_screen_upload": "Upload a file",
+    "qr_code_screen_error": "Key already exists",
+
+    "qr_code_screen_details_title": "Health Pass Details",
+    "qr_code_screen_details_btn": "Save"
 
 }
