@@ -1,16 +1,22 @@
-# anticovidapp
+# AntiCovid Application Using Flutter
 
-A new Flutter project.
+In order to stop the spread of this pandemic, we decided to create a mobile app to help us store a list containing the identifiers of people who have been in contact with an active case and inform them afterwards.
 
-## Getting Started
+## Goals
+1. Working on the UI of the application using the Figma tool.
+2. Working on scanning the QR Code of the PCR test and adding it to the database.
+3. Working on the internationalization of the application by adding two languages (French, English).
+4. Working on NearbyConnection functionality to notify the users who had contact with an active case.
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## Specification
+>At first step we worked on the Communication with other instances of applications via Bluetooth. In this Part we used Google's Near-by Connection service and stored them in a database of local data. The list of contacts will be sent to the API in case the person is tested positive.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+>In the second step we worked on The management of PCR tests and health passes by scanning the Qr-Code and viewing them afterwards, also we saved the data in a local database using Object-Box.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+>Our app has another use case being the Display of statistics related to COVID pandemic such as coverage vaccine, the numbers of COVID cases, recovered people and death cases.
+
+>Also we managed the translation of the application so it can be able to translate according to the system’s language.
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
