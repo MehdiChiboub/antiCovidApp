@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "605973878510",
+    "project_id": "flutterpushnotification-7d617",
+    "storage_bucket": "flutterpushnotification-7d617.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:605973878510:android:5940e7a6487cef3e4985ff",
+        "android_client_info": {
+          "package_name": "com.example.anticovidapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "605973878510-d4s6tntnbmbq8fhrs3g9im3mu39ilcum.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6mOR_3x2imFWYP8KhUoYZmLKCprQXwuo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "605973878510-d4s6tntnbmbq8fhrs3g9im3mu39ilcum.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:605973878510:android:311af9b6839e383f4985ff",
+        "android_client_info": {
+          "package_name": "com.example.notification_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "605973878510-d4s6tntnbmbq8fhrs3g9im3mu39ilcum.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6mOR_3x2imFWYP8KhUoYZmLKCprQXwuo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "605973878510-d4s6tntnbmbq8fhrs3g9im3mu39ilcum.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
