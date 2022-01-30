@@ -5,6 +5,7 @@ import 'package:anticovidapp/screens/notification/local_notification.dart';
 import 'package:anticovidapp/screens/qr_code/instances.dart';
 import 'package:anticovidapp/screens/qr_code/qr_code.dart';
 import 'package:anticovidapp/screens/qr_code/qr_code_screen.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -21,12 +22,12 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
 
-  // DatabaseReference _ref;
+  late DatabaseReference _ref;
   @override
   void initState() {
     super.initState();
     myData.initDb(callbackList);
-    // _ref = FirebaseDatabase.instance.reference().child('notification');
+    _ref = FirebaseDatabase.instance.reference().child('notification');
     LocalNotification.initialize(context);
 
     FirebaseMessaging.instance.getInitialMessage().then((message) {
@@ -37,12 +38,27 @@ class _HomeScreenState extends State<HomeScreen> {
       }
     });
 
+
+    _ref.once().then((event) {
+        print('Data : ${event.snapshot.value}');
+      });
+
+
     ///forground work
     FirebaseMessaging.onMessage.listen((message) {
       if(message.notification != null){
         print(message.notification!.body);
         print(message.notification!.title);
+
+        Map notif = {
+          'title' : message.notification!.title,
+          'body' : message.notification!.body
+        };
+
+        _ref.push().set(notif);
       }
+
+
 
       LocalNotification.display(message);
     });
@@ -56,6 +72,7 @@ class _HomeScreenState extends State<HomeScreen> {
       });
 
   }
+
 
   void callback(MyQrCode qrCode) {
     setState(() {
@@ -102,3 +119,4 @@ class _HomeScreenState extends State<HomeScreen> {
         },
       );
 }
+
