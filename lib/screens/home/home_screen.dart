@@ -2,6 +2,7 @@ import 'package:anticovidapp/constants.dart';
 import 'package:anticovidapp/screens/home/components/body.dart';
 import 'package:anticovidapp/screens/home/components/bottom_navbar.dart';
 import 'package:anticovidapp/screens/notification/local_notification.dart';
+import 'package:anticovidapp/screens/notification/notification_home.dart';
 import 'package:anticovidapp/screens/qr_code/instances.dart';
 import 'package:anticovidapp/screens/qr_code/qr_code.dart';
 import 'package:anticovidapp/screens/qr_code/qr_code_screen.dart';
@@ -11,8 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key, required this.title})
-      : super(key: key);
+  const HomeScreen({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
@@ -21,7 +21,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
   late DatabaseReference _ref;
   @override
   void initState() {
@@ -31,48 +30,42 @@ class _HomeScreenState extends State<HomeScreen> {
     LocalNotification.initialize(context);
 
     FirebaseMessaging.instance.getInitialMessage().then((message) {
-      if(message != null){
+      if (message != null) {
         final routeFromMessage = message.data["route"];
 
         Navigator.of(context).pushNamed(routeFromMessage);
       }
     });
 
-
     _ref.once().then((event) {
-        print('Data : ${event.snapshot.value}');
-      });
-
+      print('Data : ${event.snapshot.value}');
+    });
 
     ///forground work
     FirebaseMessaging.onMessage.listen((message) {
-      if(message.notification != null){
+      if (message.notification != null) {
         print(message.notification!.body);
         print(message.notification!.title);
 
         Map notif = {
-          'title' : message.notification!.title,
-          'body' : message.notification!.body
+          'title': message.notification!.title,
+          'body': message.notification!.body
         };
 
         _ref.push().set(notif);
       }
 
-
-
       LocalNotification.display(message);
     });
 
-      ///When the app is in background but opened and user taps
-      ///on the notification
-      FirebaseMessaging.onMessageOpenedApp.listen((message) {
-        final routeFromMessage = message.data["route"];
+    ///When the app is in background but opened and user taps
+    ///on the notification
+    FirebaseMessaging.onMessageOpenedApp.listen((message) {
+      final routeFromMessage = message.data["route"];
 
-        Navigator.of(context).pushNamed(routeFromMessage);
-      });
-
+      Navigator.of(context).pushNamed(routeFromMessage);
+    });
   }
-
 
   void callback(MyQrCode qrCode) {
     setState(() {
@@ -103,6 +96,18 @@ class _HomeScreenState extends State<HomeScreen> {
         icon: SvgPicture.asset("assets/icons/menu.svg"),
         onPressed: () {},
       ),
+      actions: [
+        IconButton(
+          icon: SvgPicture.asset("assets/icons/ring.svg"),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => const Notification_Home()),
+            );
+          },
+        ),
+      ],
       backgroundColor: kPrimaryColor,
     );
   }
@@ -119,4 +124,3 @@ class _HomeScreenState extends State<HomeScreen> {
         },
       );
 }
-
