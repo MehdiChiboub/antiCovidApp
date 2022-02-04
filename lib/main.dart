@@ -6,6 +6,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 ///Receive message when app is in background solution for on message
 Future<void> backgroundHandler(RemoteMessage message) async{

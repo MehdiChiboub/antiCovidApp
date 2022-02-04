@@ -1,7 +1,10 @@
 import 'package:anticovidapp/constants.dart';
 import 'package:anticovidapp/screens/home/components/body.dart';
 import 'package:anticovidapp/screens/home/components/bottom_navbar.dart';
+import 'package:anticovidapp/screens/near_by_connection/near_by_connection.dart';
+import 'package:anticovidapp/screens/near_by_connection/near_by_connection_entry_point.dart';
 import 'package:anticovidapp/screens/notification/local_notification.dart';
+import 'package:anticovidapp/screens/notification/notification_home.dart';
 import 'package:anticovidapp/screens/qr_code/instances.dart';
 import 'package:anticovidapp/screens/qr_code/qr_code.dart';
 import 'package:anticovidapp/screens/qr_code/qr_code_screen.dart';
@@ -39,9 +42,9 @@ class _HomeScreenState extends State<HomeScreen> {
     });
 
 
-    _ref.once().then((event) {
-        print('Data : ${event.snapshot.value}');
-      });
+    // _ref.once().then((event) {
+    //     print('Data : ${event.snapshot.value}');
+    //   });
 
 
     ///forground work
@@ -101,8 +104,26 @@ class _HomeScreenState extends State<HomeScreen> {
       elevation: 0,
       leading: IconButton(
         icon: SvgPicture.asset("assets/icons/menu.svg"),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => DevicesListScreen(deviceType: DeviceType.browser)),
+          );
+        },
       ),
+      actions: [
+        IconButton(
+          icon: SvgPicture.asset("assets/icons/ring.svg"),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => Notification_Home()),
+            );
+          },
+        ),
+      ],
       backgroundColor: kPrimaryColor,
     );
   }
